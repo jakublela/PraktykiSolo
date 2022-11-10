@@ -6,13 +6,32 @@
     </head>
     <body>
         <form name="calculatorForm" action="" method="GET">
-            Enter number x: <br>
-            <input type="number" name="valueX" id="x"><br>
+            Choose math equation: <br>
+            <select name="" id="select">
+                <option value="0">Sum</option>
+                <option value="1">Substract</option>
+                <option value="2">Multiply</option>
+                <option value="3">Divide</option>
+                <option value="4">Logarithm</option>
+                <option value="5">X power Y</option>
+                <option value="6">Special Needs</option>
+            </select><br><br>
 
-            Enter number y: <br>
-            <input type="number" name="valueY" id="y">
+            <p>
+                Enter number x: <br>
+                <input type="number" name="valueX" id="xNum">
+            </p>
+            <p>
+                Enter number y: <br>
+                <input type="number" name="valueY" id="yNum">
+            </p>
+            
             <input type="button" name="button" value="Click" onClick="handleCalculatorForm(this.form)">
+
+            <p id="result"></p>
         </form>
+
+
         <div id="calcResult"></div>
         <form name="palindromeForm" action="" method="GET">Enter something in the box: <br>
             <input type="text" name="inputbox2" value=""><br>

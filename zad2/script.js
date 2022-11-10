@@ -1,8 +1,57 @@
+function pow(x, y){
+    
+}
+
+function log(x, y){
+    return 
+}
+
 function handleCalculatorForm(form){
+    let x = document.getElementById("xNum").value;
+    let y = document.getElementById("yNum").value;
+    let select = document.getElementById("select").value;
+
+    let log = 0;
+
+    for(n = 1; n <= y; n++){
+        log = ((Math.pow(-1, n + 1)) / n) * Math.pow(x - 1, n)
+    }
+
+    switch(select){
+        case 0:
+            document.getElementById("result").innerHTML = x + y;
+            break;
+
+        case 1:
+            document.getElementById("result").innerHTML = x - y;
+            break;
+            
+        case 2:
+            document.getElementById("result").innerHTML = x * y;
+            break;
+        
+        case 3:
+            document.getElementById("result").innerHTML = x / y;
+            break;
+
+        case 4:
+            document.getElementById("result").innerHTML = log;
+            break;
+    }
+
 
     let toDisplay = form.inputbox.value;
     document.getElementById("calcResult").innerHTML = calculate(toDisplay, "+-/*");
 }
+/*
+    0 = sum
+    1 = sub
+    2 = mul
+    3 = div
+    4 = log
+    5 = pow
+    6 = spn
+*/
 
 function handlePalindromeForm(form){
 
