@@ -1,9 +1,17 @@
 function pow(x, y){
-    
+    result = 1;
+
+    for(i = 0; i < y; i++){
+        result *= x
+    }
+
+    return result;
 }
 
-function log(x, y){
-    return 
+function log(x, n){
+    for(n = 1; n <= y; n++){
+        log = ((Math.pow(-1, n + 1)) / n) * Math.pow(x - 1, n);
+    }
 }
 
 function handleCalculatorForm(form){
@@ -14,7 +22,7 @@ function handleCalculatorForm(form){
     let log = 0;
 
     for(n = 1; n <= y; n++){
-        log = ((Math.pow(-1, n + 1)) / n) * Math.pow(x - 1, n)
+        log = ((Math.pow(-1, n + 1)) / n) * Math.pow(x - 1, n);
     }
 
     switch(select){
