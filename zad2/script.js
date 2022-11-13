@@ -1,78 +1,137 @@
 function pow(x, y){
     result = 1;
 
-    for(i = 0; i < y; i++){
-        result *= x
+    for(var i = 0; i < y; i++){
+        result *= x;
     }
 
     return result;
 }
 
 function log(x, n){
-    for(n = 1; n <= y; n++){
-        log = ((Math.pow(-1, n + 1)) / n) * Math.pow(x - 1, n);
+    return (pow(-1, n + 1) / 2) * pow(x - 1, n);
+}
+
+function specialNeeds(x, y){
+    x = x % pow(10, log(x, 10));
+    y = y % pow(10, log(y, 10));
+
+    console.log((x + y) * (a + y));
+    return (x + y) * (x + y);
+
+    /*zamysłem tego kodu jest możliwość "poprawnego" obliczenia 77 + 33
+        usunięcie pierwszego znaku z liczby - po to jest "log10"
+        x + y spowoduje że 7 + 3 = 10, mnożenie ich przez siebie da wynik 100
+        to był taki mój pomysł który najpierw w Javie napisałem
+    */
+}
+
+function calculate(x, y, select){
+    console.log(select);
+    switch(select){
+        case "sum":
+            return x + y;
+
+        case "sub":
+            return x - y;
+            
+        case "mul":
+            return x * y;
+        
+        case "div":
+            if(y == 0){
+                return "Can't divide by 0";
+            } else {
+                return x / y;
+            }
+
+        case "log":
+            return log(y, x);
+
+        case "pow":
+            return pow(x, y);
+
+        case "spn":
+            return specialNeeds(x, y);
     }
 }
 
 function handleCalculatorForm(form){
-    let x = document.getElementById("xNum").value;
-    let y = document.getElementById("yNum").value;
-    let select = document.getElementById("select").value;
+    let x = parseInt(form.valueX.value);
+    let y = parseInt(form.valueY.value);
+    let select = document.getElementById("mafs").value;
 
-    let log = 0;
-
-    for(n = 1; n <= y; n++){
-        log = ((Math.pow(-1, n + 1)) / n) * Math.pow(x - 1, n);
-    }
-
-    switch(select){
-        case 0:
-            document.getElementById("result").innerHTML = x + y;
-            break;
-
-        case 1:
-            document.getElementById("result").innerHTML = x - y;
-            break;
-            
-        case 2:
-            document.getElementById("result").innerHTML = x * y;
-            break;
-        
-        case 3:
-            document.getElementById("result").innerHTML = x / y;
-            break;
-
-        case 4:
-            document.getElementById("result").innerHTML = log;
-            break;
-    }
-
-
-    let toDisplay = form.inputbox.value;
-    document.getElementById("calcResult").innerHTML = calculate(toDisplay, "+-/*");
+    console.log(document.getElementById("calcResult").innerHTML = calculate(x, y, select));
+    console.log(x + " " + y + " " + select);
 }
-/*
-    0 = sum
-    1 = sub
-    2 = mul
-    3 = div
-    4 = log
-    5 = pow
-    6 = spn
+
+/* let toDisplay = form.inputbox.value;
+
+    1 = sum
+    2 = sub
+    3 = mul
+    4 = div
+    5 = log
+    6 = pow
+    7 = spn
 */
 
+function palindrome(str){
+    word = str.split("");
+    revWord = [];
+
+    for(var i = 0; i <= word.length; i++){
+        revWord[i] = word[word.length - 1 - i];
+    }
+
+    for( i = 0; i < word.length; i++){
+        if(word[i] == revWord[i]){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
+
 function handlePalindromeForm(form){
-
-    let formValue = form.inputbox2.value;
-    document.getElementById("palindromeResult").innerHTML = palindrome(formValue);
+    let palString = form.inputbox2.value;
+    document.getElementById("palindromeResult").innerHTML = palindrome(palString);
 }
 
-function calculate(var1, var2){
-    return 0;
+function bblSort(arr){
+    for(var i = 0; i < arr.length; i++){
+        for(var j = 0; j < (arr.length - i - 1); j++){ 
+          if(arr[j] > arr[j + 1]){
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+            }
+        }
+    }
+    console.log(arr)
 }
 
-function palindrome(var1){
-    return true;
+function ZndBiggestNum(str){
+    arr = str.split(" ");
+
+    if(/^\d+$/.test(arr[i])){
+        for(var i = 0; i < arr.length; i++){
+            arr[i] = parseInt(arr[i]);
+        }
+    }
+
+    bblSort(arr);
+
+    for(var i = arr.length - 2; i >= 0; i--){
+        if(arr[i] != arr[arr.length - 1]){
+            return arr[i];
+        }
+    }
+}
+
+function handleZndBiggestNumForm(form){
+    let arr = form.inputbox3.value;
+    document.getElementById("ZndBiggestNumResult").innerHTML = ZndBiggestNum(arr);
 }
 
 /*Wypełnij funkcję calculate() obsługującą dodawanie, odejmowanie, dzielenie oraz mnożenie.

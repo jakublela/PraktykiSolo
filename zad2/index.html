@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Test Input</title>
@@ -5,39 +6,44 @@
         <script src="script.js" LANGUAGE="JavaScript"></script>
     </head>
     <body>
-        <form name="calculatorForm" action="" method="GET">
+        <form name="calculatorForm">
             Choose math equation: <br>
-            <select name="" id="select">
-                <option value="0">Sum</option>
-                <option value="1">Substract</option>
-                <option value="2">Multiply</option>
-                <option value="3">Divide</option>
-                <option value="4">Logarithm</option>
-                <option value="5">X power Y</option>
-                <option value="6">Special Needs</option>
+            <select id="mafs">
+                <option value="sum">Sum</option>
+                <option value="sub">Substract</option>
+                <option value="mul">Multiply</option>
+                <option value="div">Divide</option>
+                <option value="log">Logarithm</option>
+                <option value="pow">X power Y</option>
+                <option value="spn">Special Needs</option>
             </select><br><br>
 
             <p>
                 Enter number x: <br>
-                <input type="number" name="valueX" id="xNum">
+                <input type="number" name="valueX">
             </p>
             <p>
                 Enter number y: <br>
-                <input type="number" name="valueY" id="yNum">
+                <input type="number" name="valueY">
             </p>
             
             <input type="button" name="button" value="Click" onClick="handleCalculatorForm(this.form)">
-
-            <p id="result"></p>
+            <div id="calcResult"></div>
         </form>
 
-
-        <div id="calcResult"></div>
-        <form name="palindromeForm" action="" method="GET">Enter something in the box: <br>
-            <input type="text" name="inputbox2" value=""><br>
+        <form name="palindromeForm">
+            Enter something in the box: <br>
+            <input type="text" name="inputbox2"><br>
             <input type="button" name="button2" value="Click" onClick="handlePalindromeForm(this.form)">
         </form>
         <div id="palindromeResult"></div>
+
+        <form name="2ndBiggestNumForm">
+            Enter something in the box: <br>
+            <input type="text" name="inputbox3"><br>
+            <input type="button" name="button2" value="Click" onClick="handleZndBiggestNumForm(this.form)">
+        </form>
+        <div id="ZndBiggestNumResult"></div>
     </body>
 </html>
 
