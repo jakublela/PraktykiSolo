@@ -9,18 +9,19 @@ function pow(x, y){
 }
 
 function log(x, n){
-    return (pow(-1, n + 1) / 2) * pow(x - 1, n);
+    return (n > 1) ? 1 + log(n / 2) : 0;
 }
 
 function specialNeeds(x, y){
     x = x % pow(10, log(x, 10));
     y = y % pow(10, log(y, 10));
 
-    console.log((x + y) * (a + y));
+    console.log((x + y) * (x + y));
     return (x + y) * (x + y);
 
-    /*zamysłem tego kodu jest możliwość "poprawnego" obliczenia 77 + 33
-        usunięcie pierwszego znaku z liczby - po to jest "log10"
+    /*
+        zamysłem tego kodu jest możliwość "poprawnego" obliczenia 77 + 33
+        usunięcie pierwszego znaku z liczby - po to jest "log(x, 10) bo działa jak log10"
         x + y spowoduje że 7 + 3 = 10, mnożenie ich przez siebie da wynik 100
         to był taki mój pomysł który najpierw w Javie napisałem
     */
