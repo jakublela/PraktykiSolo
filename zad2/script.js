@@ -16,7 +16,6 @@ function specialNeeds(x, y){
     x = x % pow(10, log(x, 10));
     y = y % pow(10, log(y, 10));
 
-    console.log((x + y) * (x + y));
     return (x + y) * (x + y);
 
     /*
@@ -28,7 +27,6 @@ function specialNeeds(x, y){
 }
 
 function calculate(x, y, select){
-    console.log(select);
     switch(select){
         case "sum":
             return x + y;
@@ -63,7 +61,6 @@ function handleCalculatorForm(form){
     let select = document.getElementById("mafs").value;
 
     console.log(document.getElementById("calcResult").innerHTML = calculate(x, y, select));
-    console.log(x + " " + y + " " + select);
 }
 
 /* let toDisplay = form.inputbox.value;
