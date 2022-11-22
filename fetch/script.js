@@ -4,7 +4,7 @@ const getCatImg = () => {
     tagCat = document.getElementById("tagCat").value;
 
     if(tagCat === ""){
-        urlCat = "https://cataas.com/cat/";
+        urlCat = "https://cataas.com/cat";
     }else{
         urlCat = "https://cataas.com/cat/" + tagCat;
     }
