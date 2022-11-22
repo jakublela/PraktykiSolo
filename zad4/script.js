@@ -16,9 +16,10 @@ foreach
 let var1 = (arg1, arg2) => arg1 + arg2
 */
 
-const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const str = ["Maria", "Adam"];
-const str2 = ["Anna", "Jacek", "Kuba"];
+const num = [1, 2, 3, 4, 5];
+const num2 = [65, 21, 19, 98, 43]
+const str = ["Maria", "Anna"];
+const str2 = ["Adam", "Marek", "Bartek", "Tomek"];
 
 const joinArrays = (arr, arr2) => [...arr, ...arr2];
 console.log(joinArrays(str, str2));
@@ -36,23 +37,20 @@ console.log(sumArr(num));
 const mapArr = (arr) => arr.map(x => x * x + 3);
 console.log(mapArr(num));
 
-/*function nwm(){
-    const array1 = [1, 2, 3, 4];
+//Dodatkowe
+const filtrArr2 = (arr) => arr.filter(word => word.length < 6 && word.endsWith("ek"));
+console.log(filtrArr2(str2));
 
-    // 0 + 1 + 2 + 3 + 4
-    const initialValue = 0;
-    const sumWithInitial = array1.reduce(
-        (previousValue, currentValue) => previousValue - currentValue,
-        initialValue
-    );
+const evenNum = (arr) => arr.filter(num => num % 2 == 0);
+console.log(evenNum(num));
 
-    console.log(sumWithInitial);
-    // expected output: 10
-
+const smollestElem = (arr) => {
+    let [i, ...elements] = arr;
+    if(elements.length == 0) {
+        return i;
+    } else {
+        if (i < elements[0]) elements[0] = i;
+        return smollestElem(elements);
+    }
 }
-// 0 + 1 + 2 + 3 + 4
-
-
-
-// expected output: 10
-*/
+console.log(smollestElem(num2));
